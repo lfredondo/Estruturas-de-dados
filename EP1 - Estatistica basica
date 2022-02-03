@@ -1,0 +1,128 @@
+//Larissa Favaro Redondo
+
+//EP1 - Estatística Básica
+
+
+
+
+
+#include <stdio.h>
+
+#include<math.h>
+
+
+int main(){
+
+    int count;
+
+    float max=0, min=0, med=0, dp=0;
+
+    float operadorn=0, soma=0;
+
+    int primeiroContador=0;
+
+    int segundoContador=0;
+
+    int tamanho=0;
+
+
+
+    scanf("%d",&tamanho);
+
+    printf("Entre com a quantidade de números da sua série: ");
+
+    float vnum[tamanho];
+
+    printf("\n");
+
+    for (count=0;count<tamanho;count++){
+
+      printf("Digite o %i número da sua série: ", count+1);
+
+      scanf("%f", &vnum[count]);
+
+      if(count==0){max=vnum[count];min=vnum[count];}
+
+      if(vnum[count]>max){
+
+        max=vnum[count];
+
+      }
+
+
+
+      else{
+
+        if(vnum[count]<min){
+
+            min=vnum[count];
+
+        }
+
+      }
+
+
+
+      soma=soma+vnum[count];
+
+    }
+
+
+
+    for(primeiroContador=0;primeiroContador<tamanho-1;primeiroContador++){
+
+        for(segundoContador=primeiroContador+1;segundoContador<tamanho;segundoContador++){
+
+            if(vnum[primeiroContador] > vnum[segundoContador]){
+
+                operadorn= vnum[primeiroContador];
+
+                vnum[primeiroContador] = vnum[segundoContador];
+
+                vnum[segundoContador] = operadorn;
+
+            }
+
+        }
+
+    }
+
+
+
+    if(tamanho%2){
+
+         med = vnum[tamanho/2];
+
+    }
+
+    else {
+
+         med = (vnum[tamanho/2-1]+vnum[tamanho/2])/2;
+
+    }
+
+        for (count=0;count<tamanho;count++){
+
+        dp+=(vnum[count]-(soma/tamanho))*(vnum[count]-(soma/tamanho));
+
+            }
+
+
+
+    printf ("Os valores obtidos pelos dados foram: ");
+
+    printf ("\nMínimo:  %2.1f\n", min);
+
+    printf ("\nMáximo:  %2.1f\n", max);
+
+    printf ("\nMédia: %2.1f\n",soma/tamanho);
+
+    printf ("\nDp: %f \n",sqrt(dp/(tamanho-1)));
+
+    printf ("\nMediana: %2.1f \n", med);
+
+
+
+    return 0;
+
+}
