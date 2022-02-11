@@ -6,7 +6,7 @@
 
 int main (void ){
  int alunos,avaliacoes,i,j;
- float **provas;
+ float provas;
  double **matriz,**mat;
  double **desvio;
 
